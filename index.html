@@ -6,25 +6,20 @@
   </head>
   <body>
     <p>JQueryの練習</p>
-    <div id="box" style="width:100px;height:100px;background:red;"></div>
+    <button>Add!</button>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
-      // $(document).ready(function() {
       $(function() {
-        $('#box').click(function(){
-          alert('hi!');
+        $('button').click(function(){
+          var p = $('<p>').text('vanish!').addClass('vanish');
+          $(this).before(p);
         });
-        $('#box')
-          .mouseover(function(){
-            $(this).css('background', 'green');
-          })
-          .mouseout(function(){
-            $(this).css('background', 'blue');
-          })
-          .mousemove(function(e){
-            $(this).text(e.pageX);
+
+        $('body').on('click', '.vanish',function(){
+          $(this).remove();
         });
+
       });
     </script>
   </body>
