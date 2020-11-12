@@ -6,27 +6,24 @@
   </head>
   <body>
     <p>JQueryの練習</p>
-    <ul>
-      <li>0</li>
-      <li>1</li>
-      <li>2</li>
-    </ul>
+    <div id="box" style="width:100px;height: 100px;background: red;"></div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
       // $(document).ready(function() {
       $(function() {
-        var li = $('<li>').text('just added');
-
-        $('ul > li:eq(1)').before(li);
-        // li.insertBefore($('ul > li:eq(1)').before(li));と同じ
-        $('ul > li:eq(1)').after(li);
-        // li.insertAfter($('ul > li:eq(1)').before(li));と同じ
-
-        $('ul').prepend(li); //子要素の先頭に追加
-        // li.prependTo(ul);と同じ
-        $('ul').append(li); //子要素の末尾に追加
-        // li.appendTo(ul);と同じ
+        // $('#box').hide();//小さくなるように消える
+        // $('#box').hide('slow');//ゆっくり小さくなるように消える
+        // $('#box').hide(800);//0.8秒かけて小さくなるように消える
+        // $('#box').fadeOut(800);//0.8秒かけて消える
+        $('#box').fadeIn();//0.8秒かけて現れる
+        $('#box').toggle(800);
+        $('#box').toggle(800);
+        $('#box').toggle(800);
+        $('#box').toggle(800);//現れたり消えたりする
+        $('#box').fadeOut(800, function(){
+          alert('gone!');
+        }); //消えた後に処理を実行できる(第二引数)
       });
     </script>
   </body>
