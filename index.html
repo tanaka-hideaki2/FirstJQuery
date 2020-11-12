@@ -6,29 +6,20 @@
   </head>
   <body>
     <p>JQueryの練習</p>
-    <input type="text" id="name">
-    <select id="members" name="members">
-      <option>taguchi</option>
-      <option>fkoji</option>
-      <option>dotinstall</option>
-    </select>
+    <button>Add!</button>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
-      // $(document).ready(function() {
       $(function() {
-
-        $('#name')
-          .focus(function() {
-            $(this).css('background','red');//フォームをフォーカスした(入力受付)時
-          })
-          .blur(function() {
-            $(this).css('background','white'); //フォーカスが外れた時
-          });
-
-        $('#members').change(function() { //値が変わった時
-          alert('changed!');
+        $('button').click(function(){
+          var p = $('<p>').text('vanish!').addClass('vanish');
+          $(this).before(p);
         });
+
+        $('body').on('click', '.vanish',function(){
+          $(this).remove();
+        });
+
       });
     </script>
   </body>
