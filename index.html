@@ -6,20 +6,26 @@
   </head>
   <body>
     <p>JQueryの練習</p>
-    <button>Add!</button>
+
+    <p>
+      <input type="text" name="name" id="name">
+      <input type="button" id="greet" value="greet!">
+    </p>
+
+    <div id="result"></div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
       $(function() {
-        $('button').click(function(){
-          var p = $('<p>').text('vanish!').addClass('vanish');
-          $(this).before(p);
-        });
 
-        $('body').on('click', '.vanish',function(){
-          $(this).remove();
+        $('#greet').click(function() {
+          
+          $.get('greet.rb', {
+            name: $('#name').val()
+          }, function(data) {
+            $('#result').html(data.message + '(' + data.length + ')');
+          });
         });
-
       });
     </script>
   </body>
