@@ -7,9 +7,17 @@
   <body>
     <p>JQueryの練習</p>
 
+    <button>もっと読む</button>
+    <div id="result"></div>
+
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <script>
       $(function() {
+        $('button').click(function() {
+          $('#result').load('URL',function(){
+            $('#example').css('color', 'red');
+          });
+        });
 
       });
     </script>
